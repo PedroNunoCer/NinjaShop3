@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SportShop - Tu Tienda Deportiva</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <i class="fas fa-running me-2"></i>NinjaShop
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#home">Inicio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#productos">Productos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#categorias">Categorías</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#servicios">Servicios</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contacto">Contacto</a>
+                    </li>
+                </ul>
+                <div class="ms-3 d-flex align-items-center">
+                    <a href="#" class="btn btn-outline-light me-2">
+                        <i class="fas fa-user me-1"></i>
+                    </a>
+                    <a href="#" class="btn btn-primary position-relative" id="cartBtn">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger cart-count">
+                            0
+                        </span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero d-flex align-items-center">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6">
+                    <h1 class="display-4 fw-bold text-white slide-in-left">Tu Mejor Versión Empieza Aquí</h1>
+                    <p class="lead text-white slide-in-left delay-1">Descubre nuestra nueva colección de productos deportivos de alta calidad para todas tus actividades.</p>
+                    <div class="d-grid gap-2 d-md-flex justify-content-md-start slide-in-left delay-2">
+                        <a href="#productos" class="btn btn-primary btn-lg px-4 me-md-2">Ver Productos</a>
+                        <a href="#categorias" class="btn btn-outline-light btn-lg px-4">Explorar Categorías</a>
+                    </div>
+                </div>
+                <div class="col-lg-6 text-center">
+                    <img src="./img/DeportePrincipal.png" alt="Deportes" class="img-fluid hero-img bounce">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Productos Destacados -->
+    <section id="productos" class="py-5">
+        <div class="container">
+            <h2 class="text-center mb-5 section-title">Productos Destacados</h2>
+            <div class="row">
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <div class="card product-card" data-id="1" data-price="89.99" data-name="Zapatillas Running Pro">
+                        <div class="product-badge">Nuevo</div>
+                        <img src="/img/TenisPro.jpg" class="card-img-top" alt="Zapatillas">
+                        <div class="card-body">
+                            <h5 class="card-title">Zapatillas Running Pro</h5>
+                            <div class="product-rating mb-2">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                                <span class="ms-1">(4.5)</span>
+                            </div>
+                            <p class="card-text">Zapatillas profesionales para corredores de alto rendimiento.</p>
+                            <div class="d-flex justify-content-between align-items-center mt-3">
+                                <span class="price">$89.99</span>
+                                <button class="btn btn-sm btn-primary add-to-cart">
+                                    <i class="fas fa-cart-plus me-1"></i> Añadir
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <div class="card product-card" data-id="2" data-price="45.50" data-name="Camiseta Deportiva">
+                        <div class="product-badge bg-success">Oferta</div>
+                        <img src="/img/CamisaDeportiva.jpg" class="card-img-top" alt="Camiseta">
+                        <div class="card-body">
+                            <h5 class="card-title">Camiseta Deportiva</h5>
+                            <div class="product-rating mb-2">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="far fa-star"></i>
+                                <span class="ms-1">(4.0)</span>
+                            </div>
+                            <p class="card-text">Camiseta técnica de alto rendimiento con tecnología anti-humedad.</p>
+                            <div class="d-flex justify-content-between align-items-center mt-3">
+                                <span class="price">$45.50</span>
+                                <button class="btn btn-sm btn-primary add-to-cart">
+                                    <i class="fas fa-cart-plus me-1"></i> Añadir
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <div class="card product-card" data-id="3" data-price="129.99" data-name="Smartwatch Deportivo">
+                        <img src="./img/smarthwatch.jpg" class="card-img-top" alt="Smartwatch">
+                        <div class="card-body">
+                            <h5 class="card-title">Smartwatch Deportivo</h5>
+                            <div class="product-rating mb-2">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <span class="ms-1">(5.0)</span>
+                            </div>
+                            <p class="card-text">Reloj inteligente con monitor cardíaco y GPS integrado.</p>
+                            <div class="d-flex justify-content-between align-items-center mt-3">
+                                <span class="price">$129.99</span>
+                                <button class="btn btn-sm btn-primary add-to-cart">
+                                    <i class="fas fa-cart-plus me-1"></i> Añadir
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <div class="card product-card" data-id="4" data-price="35.99" data-name="Balón de Fútbol Pro">
+                        <div class="product-badge bg-danger">-20%</div>
+                        <img src="/img/balon.jpg" class="card-img-top" alt="Balón">
+                        <div class="card-body">
+                            <h5 class="card-title">Balón de Fútbol Pro</h5>
+                            <div class="product-rating mb-2">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                                <i class="far fa-star"></i>
+                                <span class="ms-1">(3.5)</span>
+                            </div>
+                            <p class="card-text">Balón oficial de competición con tecnología avanzada de control.</p>
+                            <div class="d-flex justify-content-between align-items-center mt-3">
+                                <span class="price">$35.99</span>
+                                <button class="btn btn-sm btn-primary add-to-cart">
+                                    <i class="fas fa-cart-plus me-1"></i> Añadir
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center mt-4">
+                <a href="#" class="btn btn-outline-primary btn-lg">Ver Todos los Productos</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Categorías -->
+    <section id="categorias" class="py-5 bg-light">
+        <div class="container">
+            <h2 class="text-center mb-5 section-title">Nuestras Categorías</h2>
+            <div class="row">
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="category-card">
+                        <div class="category-img">
+                            <img src="/api/placeholder/400/300" alt="Running" class="img-fluid">
+                            <div class="category-overlay">
+                                <a href="#" class="btn btn-light">Explorar</a>
+                            </div>
+                        </div>
+                        <div class="category-title">
+                            <h3>Running</h3>
+                            <p>Encuentra todo lo que necesitas para tu entrenamiento</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="category-card">
+                        <div class="category-img">
+                            <img src="/api/placeholder/400/300" alt="Fitness" class="img-fluid">
+                            <div class="category-overlay">
+                                <a href="#" class="btn btn-light">Explorar</a>
+                            </div>
+                        </div>
+                        <div class="category-title">
+                            <h3>Fitness</h3>
+                            <p>Equipamiento de última generación para tus rutinas</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="category-card">
+                        <div class="category-img">
+                            <img src="/api/placeholder/400/300" alt="Deportes de Equipo" class="img-fluid">
+                            <div class="category-overlay">
+                                <a href="#" class="btn btn-light">Explorar</a>
+                            </div>
+                        </div>
+                        <div class="category-title">
+                            <h3>Deportes de Equipo</h3>
+                            <p>Todo para tus deportes favoritos</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Servicios -->
+    <section id="servicios" class="py-5">
+        <div class="container">
+            <h2 class="text-center mb-5 section-title">Nuestros Servicios</h2>
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <div class="service-card text-center fade-in">
+                        <div class="service-icon">
+                            <i class="fas fa-truck"></i>
+                        </div>
+                        <h4>Envío Gratis</h4>
+                        <p>En pedidos superiores a $50. Entregas en 24-48h en toda la ciudad.</p>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="service-card text-center fade-in delay-1">
+                        <div class="service-icon">
+                            <i class="fas fa-sync-alt"></i>
+                        </div>
+                        <h4>Devoluciones Fáciles</h4>
+                        <p>30 días para cambios y devoluciones sin complicaciones.</p>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="service-card text-center fade-in delay-2">
+                        <div class="service-icon">
+                            <i class="fas fa-headset"></i>
+                        </div>
+                        <h4>Soporte Técnico</h4>
+                        <p>Asesoramiento personalizado por especialistas deportivos.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonios -->
+    <section class="py-5 bg-light">
+        <div class="container">
+            <h2 class="text-center mb-5 section-title">Lo Que Dicen Nuestros Clientes</h2>
+            <div class="row testimonial-slider">
+                <div class="col-md-4 mb-4">
+                    <div class="testimonial-card">
+                        <div class="testimonial-content">
+                            <p>"Las zapatillas que compré son increíbles, superaron todas mis expectativas. El servicio de atención al cliente fue excelente."</p>
+                        </div>
+                        <div class="testimonial-author d-flex align-items-center">
+                            <div class="testimonial-avatar">
+                                <img src="/api/placeholder/50/50" alt="Cliente" class="rounded-circle">
+                            </div>
+                            <div class="ms-3">
+                                <h5 class="mb-0">Carlos Rodríguez</h5>
+                                <small>Corredor Aficionado</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="testimonial-card">
+                        <div class="testimonial-content">
+                            <p>"He comprado varias veces en esta tienda y siempre quedo satisfecha. Los productos son de alta calidad y duran muchísimo."</p>
+                        </div>
+                        <div class="testimonial-author d-flex align-items-center">
+                            <div class="testimonial-avatar">
+                                <img src="/api/placeholder/50/50" alt="Cliente" class="rounded-circle">
+                            </div>
+                            <div class="ms-3">
+                                <h5 class="mb-0">María López</h5>
+                                <small>Entrenadora Personal</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="testimonial-card">
+                        <div class="testimonial-content">
+                            <p>"El asesoramiento que recibí fue clave para elegir el equipamiento adecuado. Ahora mis entrenamientos son mucho más efectivos."</p>
+                        </div>
+                        <div class="testimonial-author d-flex align-items-center">
+                            <div class="testimonial-avatar">
+                                <img src="/api/placeholder/50/50" alt="Cliente" class="rounded-circle">
+                            </div>
+                            <div class="ms-3">
+                                <h5 class="mb-0">José Martínez</h5>
+                                <small>Ciclista Profesional</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter -->
+    <section class="newsletter py-5">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8 text-center">
+                    <h3 class="text-white mb-4">¡Suscríbete a nuestro boletín!</h3>
+                    <p class="text-white mb-4">Recibe las últimas novedades, ofertas exclusivas y consejos deportivos.</p>
+                    <div class="input-group newsletter-form slide-in-right">
+                        <input type="email" class="form-control" placeholder="Tu correo electrónico">
+                        <button class="btn btn-primary" type="button">Suscribirse</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-4 mb-lg-0">
+                    <h4 class="text-white mb-4">
+                        <i class="fas fa-running me-2"></i>NinjaShop
+                    </h4>
+                    <p class="text-white-50">Tu tienda deportiva de confianza con los mejores productos para tus actividades físicas y deportivas.</p>
+                    <div class="social-links">
+                        <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-4 mb-4 mb-md-0">
+                    <h5 class="text-white mb-4">Enlaces Rápidos</h5>
+                    <ul class="footer-links">
+                        <li><a href="#">Inicio</a></li>
+                        <li><a href="#productos">Productos</a></li>
+                        <li><a href="#categorias">Categorías</a></li>
+                        <li><a href="#servicios">Servicios</a></li>
+                        <li><a href="#contacto">Contacto</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2 col-md-4 mb-4 mb-md-0">
+                    <h5 class="text-white mb-4">Categorías</h5>
+                    <ul class="footer-links">
+                        <li><a href="#">Running</a></li>
+                        <li><a href="#">Fitness</a></li>
+                        <li><a href="#">Ciclismo</a></li>
+                        <li><a href="#">Natación</a></li>
+                        <li><a href="#">Deportes de equipo</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-4 col-md-4">
+                    <h5 class="text-white mb-4">Contacto</h5>
+                    <ul class="contact-info">
+                        <li><i class="fas fa-map-marker-alt"></i> Av. Deportiva 123, Ciudad</li>
+                        <li><i class="fas fa-phone"></i> +34 912 345 678</li>
+                        <li><i class="fas fa-envelope"></i> info@sportshop.com</li>
+                        <li><i class="fas fa-clock"></i> Lun-Vie: 9am-8pm, Sáb: 10am-6pm</li>
+                    </ul>
+                </div>
+            </div>
+            <hr class="footer-divider">
+            <div class="row align-items-center">
+                <div class="col-md-6 text-center text-md-start">
+                    <p class="mb-0 text-white-50">&copy; 2025 SportShop. Todos los derechos reservados.</p>
+                </div>
+                <div class="col-md-6 text-center text-md-end mt-3 mt-md-0">
+                    <div class="payment-methods">
+                        <i class="fab fa-cc-visa"></i>
+                        <i class="fab fa-cc-mastercard"></i>
+                        <i class="fab fa-cc-paypal"></i>
+                        <i class="fab fa-cc-amex"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Cart Modal -->
+    <div class="modal fade" id="cartModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">
+                        <i class="fas fa-shopping-cart me-2"></i>Tu Carrito
+                    </h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div id="cartItems">
+                        <!-- Cart items will be here -->
+                        <div class="text-center py-5" id="emptyCart">
+                            <i class="fas fa-shopping-cart fa-3x mb-3 text-muted"></i>
+                            <p>Tu carrito está vacío</p>
+                            <a href="#productos" data-bs-dismiss="modal" class="btn btn-primary">Ir a comprar</a>
+                        </div>
+                    </div>
+                    <div id="cartContent" class="d-none">
+                        <div class="table-responsive">
+                            <table class="table align-middle">
+                                <thead>
+                                    <tr>
+                                        <th>Producto</th>
+                                        <th>Precio</th>
+                                        <th>Cantidad</th>
+                                        <th>Total</th>
+                                        <th></th>
+                                    </tr>
+                                </thead>
+                                <tbody id="cartItemsTable">
+                                    <!-- Table rows will be added here -->
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="d-flex justify-content-between mt-4">
+                            <h5>Total:</h5>
+                            <h5 id="cartTotal">$0.00</h5>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Seguir Comprando</button>
+                    <button type="button" class="btn btn-primary" id="checkoutBtn" disabled>Proceder al Pago</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Success notification -->
+    <div class="toast-container position-fixed bottom-0 end-0 p-3">
+        <div id="addToCartToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+            <div class="toast-header bg-success text-white">
+                <i class="fas fa-check-circle me-2"></i>
+                <strong class="me-auto">Producto Añadido</strong>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="toast" aria-label="Close"></button>
+            </div>
+            <div class="toast-body">
+                El producto ha sido añadido a tu carrito correctamente.
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
