@@ -291,3 +291,135 @@ function initNavbarScroll() {
         }
     });
 }
+
+
+// JavaScript para la ruleta de promociones
+document.addEventListener('DOMContentLoaded', function() {
+    // Mostrar la ruleta al cargar la página, a menos que se haya desactivado
+    if (!localStorage.getItem('ruletaDesactivada')) {
+        setTimeout(() => {
+            const ruletaModal = new bootstrap.Modal(document.getElementById('ruletaModal'));
+            ruletaModal.show();
+        }, 800); // Pequeño retraso para asegurar que la página ha cargado
+    }
+
+    // Elementos de la ruleta
+    const girarRuletaBtn = document.getElementById('girarRuleta');
+    const ruletaEl = document.getElementById('ruleta');
+    const promoResult = document.getElementById('promo-result');
+    const premioEl = document.getElementById('premio');
+    const codigoPromocion = document.getElementById('codigo-promocion');
+    const noMostrarMas = document.getElementById('noMostrarMas');
+    const continuarTienda = document.getElementById('continuarTienda');
+
+    // Premios disponibles en la ruleta
+    const premios = [
+        '10% OFF',
+        '15% OFF',
+        '5% OFF',
+        'ENVÍO GRATIS',
+        '20% OFF',
+        'REGALO'
+    ];
+
+    // Códigos de promoción correspondientes a cada premio
+    const codigosPremios = [
+        'NINJA10',
+        'NINJA15',
+        'NINJA05',
+        'ENVIOGRATIS',
+        'SUPER20',
+        'REGALO2025'
+    ];
+
+    // Variable para controlar si la ruleta está girando
+    let isSpinning = false;
+
+    // Función para generar un ángulo aleatorio entre 1080 y 1440 grados (3-4 vueltas)
+    function generarAngulo() {
+        // Generamos un ángulo base entre 3 y 4 vueltas completas (1080-1440 grados)
+        let anguloBase = 1080 + Math.floor(Math.random() * 360);
+        
+        // Calculamos los ángulos centrales de cada sección
+        const seccionAngulo = 360 / premios.length;
+        
+        // Elegimos un premio aleatorio
+        const premioIndex = Math.floor(Math.random() * premios.length);
+        
+        // Calculamos el ángulo adicional para que termine en la sección elegida
+        // Las secciones están divididas cada 60 grados (360/6)
+        const anguloAdicional = premioIndex * seccionAngulo;
+        
+        // Sumamos un pequeño offset aleatorio dentro de la sección para que no siempre caiga en el centro
+        const offset = Math.floor(Math.random() * (seccionAngulo * 0.7)) - (seccionAngulo * 0.35);
+        
+        // El ángulo final será la suma del ángulo base más el ángulo adicional y el offset
+        return anguloBase + anguloAdicional + offset;
+    }
+
+    // Evento al hacer clic en el botón de girar
+    girarRuletaBtn.addEventListener('click', function() {
+        if (isSpinning) return;
+        
+        isSpinning = true;
+        promoResult.classList.add('d-none');
+        girarRuletaBtn.disabled = true;
+        
+        // Generamos el ángulo aleatorio
+        const angulo = generarAngulo();
+        
+        // Giramos la ruleta
+        ruletaEl.style.transform = `rotate(${angulo}deg)`;
+        
+        // Después de la animación, mostramos el resultado
+        setTimeout(() => {
+            // Calculamos qué premio ha tocado basándonos en el ángulo final
+            // El ángulo final es el remainder de dividir el ángulo por 360
+            const anguloFinal = angulo % 360;
+            
+            // Cada sección ocupa 60 grados (360/6)
+            const seccionAngulo = 360 / premios.length;
+            const premioIndex = 5 - Math.floor(anguloFinal / seccionAngulo);
+            const premioActual = premios[premioIndex % premios.length];
+            const codigoActual = codigosPremios[premioIndex % premios.length];
+            
+            // Mostramos el resultado
+            premioEl.textContent = premioActual;
+            codigoPromocion.textContent = codigoActual;
+            promoResult.classList.remove('d-none');
+            
+            // Guardamos el código en localStorage para usarlo en la tienda
+            localStorage.setItem('promocionActiva', codigoActual);
+            localStorage.setItem('premioDescript', premioActual);
+            
+            // Habilitamos el botón nuevamente
+            setTimeout(() => {
+                girarRuletaBtn.disabled = false;
+                isSpinning = false;
+                girarRuletaBtn.textContent = 'Girar otra vez';
+            }, 500);
+        }, 4100); // Esperar a que termine la animación (4s + 100ms)
+    });
+
+    // Evento al hacer clic en no mostrar más
+    noMostrarMas.addEventListener('change', function() {
+        if (this.checked) {
+            localStorage.setItem('ruletaDesactivada', 'true');
+        } else {
+            localStorage.removeItem('ruletaDesactivada');
+        }
+    });
+
+    // Evento al hacer clic en continuar a la tienda
+    continuarTienda.addEventListener('click', function() {
+        // Podemos añadir alguna lógica adicional aquí si es necesario
+        // Por ejemplo, mostrar un banner con el premio ganado
+        const premio = localStorage.getItem('premioDescript');
+        const codigo = localStorage.getItem('promocionActiva');
+        
+        if (premio && codigo) {
+            // Aquí podrías mostrar un banner o alguna notificación en la tienda
+            console.log('Premio ganado:', premio, 'Código:', codigo);
+        }
+    });
+});

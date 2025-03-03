@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SportShop - Tu Tienda Deportiva</title>
+    <title>NinjaShop - Tu Tienda Deportiva</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="styles.css">
@@ -213,7 +213,7 @@
                 <div class="col-lg-4 col-md-6 mb-4">
                     <div class="category-card">
                         <div class="category-img">
-                            <img src="/api/placeholder/400/300" alt="Deportes de Equipo" class="img-fluid">
+                            <img src="/img/imagenes juego por equipos/poster-futbol-americano.avif" alt="Deportes de Equipo" class="img-fluid">
                             <div class="category-overlay">
                                 <a href="#" class="btn btn-light">Explorar</a>
                             </div>
@@ -224,7 +224,38 @@
                         </div>
                     </div>
                 </div>
+                
             </div>
+            <div class="row justify-content-center">
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="category-card">
+                        <div class="category-img">
+                            <img src="/img/imagenes juego por equipos/poster-futbol-americano.avif" alt="Running" class="img-fluid">
+                            <div class="category-overlay">
+                                <a href="#" class="btn btn-light">Explorar</a>
+                            </div>
+                        </div>
+                        <div class="category-title">
+                            <h3>Ciclismo</h3>
+                            <p>Encuentra todo lo que necesitas para tu entrenamiento</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="category-card">
+                        <div class="category-img">
+                            <img src="/img nat/gogles azules.jpg" alt="Fitness" class="img-fluid">
+                            <div class="category-overlay">
+                                <a href="#" class="btn btn-light">Explorar</a>
+                            </div>
+                        </div>
+                        <div class="category-title">
+                            <h3>Natación</h3>
+                            <p>Equipamiento de última generación para tus rutinas</p>
+                        </div>
+                    </div>
+                </div>
+            
         </div>
     </section>
 
@@ -338,7 +369,7 @@
     </section>
 
     <!-- Footer -->
-    <footer class="footer py-5">
+    <footer id="contacto" class="footer py-5">
         <div class="container">
             <div class="row">
                 <div class="col-lg-4 mb-4 mb-lg-0">
@@ -373,6 +404,7 @@
                         <li><a href="#">Deportes de equipo</a></li>
                     </ul>
                 </div>
+                
                 <div class="col-lg-4 col-md-4">
                     <h5 class="text-white mb-4">Contacto</h5>
                     <ul class="contact-info">
@@ -382,6 +414,7 @@
                         <li><i class="fas fa-clock"></i> Lun-Vie: 9am-8pm, Sáb: 10am-6pm</li>
                     </ul>
                 </div>
+                
             </div>
             <hr class="footer-divider">
             <div class="row align-items-center">
@@ -463,6 +496,74 @@
             </div>
         </div>
     </div>
+    <!-- Modal Ruleta de Promociones -->
+<div class="modal fade" id="ruletaModal" tabindex="-1" aria-hidden="true" data-bs-backdrop="static">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+        <div class="modal-content">
+            <div class="modal-header bg-primary text-white">
+                <h5 class="modal-title">
+                    <i class="fas fa-gift me-2"></i>¡Gira y Gana!
+                </h5>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body text-center">
+                <p class="lead mb-4">¡Gira la ruleta y obtén descuentos exclusivos para tu compra!</p>
+                
+                <div class="ruleta-container mb-4">
+                    <div class="ruleta-wheel" id="ruleta">
+                        <div class="ruleta-section">
+                            <span>10% OFF</span>
+                        </div>
+                        <div class="ruleta-section">
+                            <span>15% OFF</span>
+                        </div>
+                        <div class="ruleta-section">
+                            <span>5% OFF</span>
+                        </div>
+                        <div class="ruleta-section">
+                            <span>ENVÍO GRATIS</span>
+                        </div>
+                        <div class="ruleta-section">
+                            <span>20% OFF</span>
+                        </div>
+                        <div class="ruleta-section">
+                            <span>REGALO</span>
+                        </div>
+                        
+                        <!-- Centro de la ruleta -->
+                        <div class="ruleta-center">
+                            <i class="fas fa-gift"></i>
+                        </div>
+                    </div>
+                    
+                    <!-- Puntero/indicador -->
+                    <div class="ruleta-pointer">
+                    </div>
+                </div>
+                
+                <div id="promo-result" class="d-none alert alert-success py-3 mb-4">
+                    <h4 class="mb-0">¡Felicidades! Has ganado: <span id="premio"></span></h4>
+                    <p class="mb-0 mt-2">Usa el código: <strong id="codigo-promocion" class="fs-5"></strong></p>
+                </div>
+                
+                <button type="button" class="btn btn-primary btn-lg px-4 py-2" id="girarRuleta">
+                    <i class="fas fa-sync-alt me-2"></i>¡Girar!
+                </button>
+            </div>
+            <div class="modal-footer">
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="noMostrarMas">
+                    <label class="form-check-label" for="noMostrarMas">
+                        No mostrar nuevamente
+                    </label>
+                </div>
+                <button type="button" class="btn btn-success" data-bs-dismiss="modal" id="continuarTienda">
+                    Continuar a la tienda
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
 
     <!-- Scripts -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
