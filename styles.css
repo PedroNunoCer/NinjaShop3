@@ -766,3 +766,212 @@ button:hover {
     border-left: 12px solid #333;
     right: -8px;
 }
+
+
+/* Animaciones para secciones - NinjaShop (versión más lenta) */
+
+/* Animaciones básicas - duración aumentada */
+@keyframes fadeInDown {
+    from {
+      opacity: 0;
+      transform: translate3d(0, -50px, 0);
+    }
+    to {
+      opacity: 1;
+      transform: translate3d(0, 0, 0);
+    }
+  }
+  
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translate3d(0, 50px, 0);
+    }
+    to {
+      opacity: 1;
+      transform: translate3d(0, 0, 0);
+    }
+  }
+  
+  @keyframes fadeInLeft {
+    from {
+      opacity: 0;
+      transform: translate3d(-50px, 0, 0);
+    }
+    to {
+      opacity: 1;
+      transform: translate3d(0, 0, 0);
+    }
+  }
+  
+  @keyframes fadeInRight {
+    from {
+      opacity: 0;
+      transform: translate3d(50px, 0, 0);
+    }
+    to {
+      opacity: 1;
+      transform: translate3d(0, 0, 0);
+    }
+  }
+  
+  @keyframes scaleIn {
+    from {
+      opacity: 0;
+      transform: scale(0.9);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+  
+  /* Clase base para todas las secciones animadas */
+  .animate-section {
+    opacity: 0;
+    transition: all 1.2s ease; /* Más lento: de 0.5s a 1.2s */
+  }
+  
+  /* Clase activada cuando la sección es visible */
+  .animate-active {
+    opacity: 1;
+  }
+  
+  /* Animaciones específicas para cada sección - duración aumentada */
+  .fade-down {
+    animation: fadeInDown 1.5s ease forwards; /* Más lento: de 0.8s a 1.5s */
+  }
+  
+  .fade-up {
+    animation: fadeInUp 1.5s ease forwards; /* Más lento: de 0.8s a 1.5s */
+  }
+  
+  .fade-left {
+    animation: fadeInLeft 1.5s ease forwards; /* Más lento: de 0.8s a 1.5s */
+  }
+  
+  .fade-right {
+    animation: fadeInRight 1.5s ease forwards; /* Más lento: de 0.8s a 1.5s */
+  }
+  
+  .scale-in {
+    animation: scaleIn 1.5s ease forwards; /* Más lento: de 0.8s a 1.5s */
+  }
+  
+  /* Estilo para cada sección con diferentes animaciones - duración aumentada */
+  #home.animate-active .container {
+    animation: fadeInDown 2s ease forwards; /* Más lento: de 1s a 2s */
+  }
+  
+  #productos.animate-active .section-title {
+    animation: fadeInDown 1.5s ease forwards; /* Más lento: de 0.8s a 1.5s */
+  }
+  
+  #productos.animate-active .product-card {
+    opacity: 0;
+    animation: fadeInUp 1.5s ease forwards; /* Más lento: de 0.8s a 1.5s */
+  }
+  
+  #productos.animate-active .product-card:nth-child(1) {
+    animation-delay: 0.2s; /* Retraso ligeramente mayor */
+  }
+  
+  #productos.animate-active .product-card:nth-child(2) {
+    animation-delay: 0.4s; /* Retraso ligeramente mayor */
+  }
+  
+  #productos.animate-active .product-card:nth-child(3) {
+    animation-delay: 0.6s; /* Retraso ligeramente mayor */
+  }
+  
+  #productos.animate-active .product-card:nth-child(4) {
+    animation-delay: 0.8s; /* Retraso ligeramente mayor */
+  }
+  
+  #categorias.animate-active .section-title {
+    animation: fadeInDown 1.5s ease forwards; /* Más lento: de 0.8s a 1.5s */
+  }
+  
+  #categorias.animate-active .category-card {
+    opacity: 0;
+    animation: fadeInUp 1.5s ease forwards; /* Más lento: de 0.8s a 1.5s */
+  }
+  
+  #categorias.animate-active .category-card:nth-child(1) {
+    animation-delay: 0.2s; /* Retraso ligeramente mayor */
+  }
+  
+  #categorias.animate-active .category-card:nth-child(2) {
+    animation-delay: 0.4s; /* Retraso ligeramente mayor */
+  }
+  
+  #categorias.animate-active .category-card:nth-child(3) {
+    animation-delay: 0.6s; /* Retraso ligeramente mayor */
+  }
+  
+  #servicios.animate-active .section-title {
+    animation: fadeInDown 1.5s ease forwards; /* Más lento: de 0.8s a 1.5s */
+  }
+  
+  #servicios.animate-active .service-card {
+    opacity: 0;
+    animation: scaleIn 1.5s ease forwards; /* Más lento: de 0.8s a 1.5s */
+  }
+  
+  #servicios.animate-active .service-card:nth-child(1) {
+    animation-delay: 0.2s; /* Retraso ligeramente mayor */
+  }
+  
+  #servicios.animate-active .service-card:nth-child(2) {
+    animation-delay: 0.5s; /* Retraso ligeramente mayor */
+  }
+  
+  #servicios.animate-active .service-card:nth-child(3) {
+    animation-delay: 0.8s; /* Retraso ligeramente mayor */
+  }
+  
+  /* Testimonios */
+  .testimonial-slider .testimonial-card {
+    opacity: 0;
+    animation: fadeInRight 1.5s ease forwards; /* Más lento: de 0.8s a 1.5s */
+  }
+  
+  .testimonial-slider .testimonial-card:nth-child(1) {
+    animation-delay: 0.2s; /* Retraso ligeramente mayor */
+  }
+  
+  .testimonial-slider .testimonial-card:nth-child(2) {
+    animation-delay: 0.5s; /* Retraso ligeramente mayor */
+  }
+  
+  .testimonial-slider .testimonial-card:nth-child(3) {
+    animation-delay: 0.8s; /* Retraso ligeramente mayor */
+  }
+  
+  /* Newsletter */
+  .newsletter .container {
+    opacity: 0;
+    animation: fadeInUp 1.5s ease forwards; /* Más lento: de 0.8s a 1.5s */
+  }
+  
+  /* Footer */
+  #contacto .row > div {
+    opacity: 0;
+    animation: fadeInUp 1.5s ease forwards; /* Más lento: de 0.8s a 1.5s */
+  }
+  
+  #contacto .row > div:nth-child(1) {
+    animation-delay: 0.2s; /* Retraso ligeramente mayor */
+  }
+  
+  #contacto .row > div:nth-child(2) {
+    animation-delay: 0.4s; /* Retraso ligeramente mayor */
+  }
+  
+  #contacto .row > div:nth-child(3) {
+    animation-delay: 0.6s; /* Retraso ligeramente mayor */
+  }
+  
+  #contacto .row > div:nth-child(4) {
+    animation-delay: 0.8s; /* Retraso ligeramente mayor */
+  }
