@@ -188,6 +188,8 @@ a {
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
     margin-bottom: 20px;
     transition: var(--transition);
+    
+    
 }
 
 .category-card:hover {
@@ -196,6 +198,7 @@ a {
 }
 
 .category-img {
+    
     position: relative;
     overflow: hidden;
 }
