@@ -293,6 +293,9 @@ function initNavbarScroll() {
 }
 
 
+
+
+
 // JavaScript para la ruleta de promociones
 document.addEventListener('DOMContentLoaded', function() {
     // Mostrar la ruleta al cargar la página, a menos que se haya desactivado
@@ -425,26 +428,41 @@ function updateActiveNavLinks() {
     // Obtener todas las secciones
     const sections = document.querySelectorAll('section[id]');
     
-    // Obtener la posición actual de desplazamiento
+    // Obtener la posición actual de desplazamiento y la altura del viewport
     const scrollPosition = window.scrollY;
-    
+    const viewportHeight = window.innerHeight;
+    const documentHeight = document.documentElement.scrollHeight;
+
+    // Verificar si el usuario ha llegado al final de la página
+    const isAtBottom = scrollPosition + viewportHeight >= documentHeight - 50; // Margen de 50px
+
     // Revisar cada sección para ver si está en el viewport
     sections.forEach(section => {
         const sectionTop = section.offsetTop - 100; // Compensar por el navbar fixed
         const sectionHeight = section.offsetHeight;
         const sectionId = section.getAttribute('id');
         
-        if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+        // Verificar si la sección está en el viewport o si el usuario está al final de la página
+        if (
+            (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) ||
+            (isAtBottom && sectionId === 'contacto') // Activar la sección contacto al final
+        ) {
             // Remover clase active de todos los enlaces
             document.querySelectorAll('.navbar .nav-link').forEach(link => {
                 link.classList.remove('active');
             });
             
             // Añadir clase active al enlace correspondiente
-            document.querySelector(`.navbar .nav-link[href="#${sectionId}"]`).classList.add('active');
+            const navLink = document.querySelector(`.navbar .nav-link[href="#${sectionId}"]`).classList.add('active');
+            if (navLink) {
+                navLink.classList.add('active');
+            }
         }
     });
 }
+
+
+
 
 // Ejecutar la función al cargar la página y durante el desplazamiento
 document.addEventListener('DOMContentLoaded', function() {
