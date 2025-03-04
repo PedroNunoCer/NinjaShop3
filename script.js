@@ -425,3 +425,86 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 
+// Función para actualizar los enlaces de navegación activos basados en la sección visible
+function updateActiveNavLinks() {
+    // Obtener todas las secciones
+    const sections = document.querySelectorAll('section[id]');
+    
+    // Obtener la posición actual de desplazamiento
+    const scrollPosition = window.scrollY;
+    
+    // Revisar cada sección para ver si está en el viewport
+    sections.forEach(section => {
+        const sectionTop = section.offsetTop - 100; // Compensar por el navbar fixed
+        const sectionHeight = section.offsetHeight;
+        const sectionId = section.getAttribute('id');
+        
+        if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+            // Remover clase active de todos los enlaces
+            document.querySelectorAll('.navbar .nav-link').forEach(link => {
+                link.classList.remove('active');
+            });
+            
+            // Añadir clase active al enlace correspondiente
+            document.querySelector(`.navbar .nav-link[href="#${sectionId}"]`).classList.add('active');
+        }
+    });
+}
+
+// Ejecutar la función al cargar la página y durante el desplazamiento
+document.addEventListener('DOMContentLoaded', function() {
+    // Establecer el enlace "Inicio" como activo por defecto
+    document.querySelector('.navbar .nav-link[href="#home"]').classList.add('active');
+    
+    // Actualizar en scroll
+    window.addEventListener('scroll', updateActiveNavLinks);
+    
+    // Actualizar al cargar la página
+    updateActiveNavLinks();
+});
+
+
+// Función para alternar entre modos oscuro y claro
+function toggleDarkMode() {
+    // Verifica el estado actual del tema
+    const isDarkMode = document.body.getAttribute('data-theme') === 'dark';
+    
+    // Cambia el atributo data-theme en el body
+    if (isDarkMode) {
+        document.body.removeAttribute('data-theme');
+        localStorage.setItem('theme', 'light');
+    } else {
+        document.body.setAttribute('data-theme', 'dark');
+        localStorage.setItem('theme', 'dark');
+    }
+}
+
+// Inicializa el tema según la preferencia guardada o la preferencia del sistema
+document.addEventListener('DOMContentLoaded', function() {
+    // Verifica si hay una preferencia guardada
+    const savedTheme = localStorage.getItem('theme');
+    
+    // Si no hay preferencia guardada, verifica la preferencia del sistema
+    if (!savedTheme) {
+        const prefersDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        if (prefersDarkMode) {
+            document.body.setAttribute('data-theme', 'dark');
+            document.getElementById('darkModeToggle').checked = true;
+        }
+    } else if (savedTheme === 'dark') {
+        document.body.setAttribute('data-theme', 'dark');
+        document.getElementById('darkModeToggle').checked = true;
+    }
+    
+    // Agrega el evento de cambio al toggle
+    document.getElementById('darkModeToggle').addEventListener('change', toggleDarkMode);
+});
+
+
+// Inicializar todos los dropdowns
+document.addEventListener('DOMContentLoaded', function() {
+    var dropdownElementList = [].slice.call(document.querySelectorAll('.dropdown-toggle'))
+    var dropdownList = dropdownElementList.map(function (dropdownToggleEl) {
+      return new bootstrap.Dropdown(dropdownToggleEl)
+    });
+  });

@@ -768,210 +768,223 @@ button:hover {
 }
 
 
-/* Animaciones para secciones - NinjaShop (versión más lenta) */
 
-/* Animaciones básicas - duración aumentada */
-@keyframes fadeInDown {
-    from {
-      opacity: 0;
-      transform: translate3d(0, -50px, 0);
-    }
-    to {
-      opacity: 1;
-      transform: translate3d(0, 0, 0);
-    }
-  }
-  
-  @keyframes fadeInUp {
-    from {
-      opacity: 0;
-      transform: translate3d(0, 50px, 0);
-    }
-    to {
-      opacity: 1;
-      transform: translate3d(0, 0, 0);
-    }
-  }
-  
-  @keyframes fadeInLeft {
-    from {
-      opacity: 0;
-      transform: translate3d(-50px, 0, 0);
-    }
-    to {
-      opacity: 1;
-      transform: translate3d(0, 0, 0);
-    }
-  }
-  
-  @keyframes fadeInRight {
-    from {
-      opacity: 0;
-      transform: translate3d(50px, 0, 0);
-    }
-    to {
-      opacity: 1;
-      transform: translate3d(0, 0, 0);
-    }
-  }
-  
-  @keyframes scaleIn {
-    from {
-      opacity: 0;
-      transform: scale(0.9);
-    }
-    to {
-      opacity: 1;
-      transform: scale(1);
-    }
-  }
-  
-  /* Clase base para todas las secciones animadas */
-  .animate-section {
+
+/* Efecto de iluminación para los enlaces de navegación */
+.navbar .nav-link {
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+.navbar .nav-link:after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 50%;
+    background-color: #ffffff;
+    transition: all 0.3s ease;
+    transform: translateX(-50%);
     opacity: 0;
-    transition: all 1.2s ease; /* Más lento: de 0.5s a 1.2s */
-  }
-  
-  /* Clase activada cuando la sección es visible */
-  .animate-active {
+}
+
+/* Solo muestra la línea para el enlace activo/actual */
+.navbar .nav-link.active:after {
+    width: 100%;
     opacity: 1;
-  }
-  
-  /* Animaciones específicas para cada sección - duración aumentada */
-  .fade-down {
-    animation: fadeInDown 1.5s ease forwards; /* Más lento: de 0.8s a 1.5s */
-  }
-  
-  .fade-up {
-    animation: fadeInUp 1.5s ease forwards; /* Más lento: de 0.8s a 1.5s */
-  }
-  
-  .fade-left {
-    animation: fadeInLeft 1.5s ease forwards; /* Más lento: de 0.8s a 1.5s */
-  }
-  
-  .fade-right {
-    animation: fadeInRight 1.5s ease forwards; /* Más lento: de 0.8s a 1.5s */
-  }
-  
-  .scale-in {
-    animation: scaleIn 1.5s ease forwards; /* Más lento: de 0.8s a 1.5s */
-  }
-  
-  /* Estilo para cada sección con diferentes animaciones - duración aumentada */
-  #home.animate-active .container {
-    animation: fadeInDown 2s ease forwards; /* Más lento: de 1s a 2s */
-  }
-  
-  #productos.animate-active .section-title {
-    animation: fadeInDown 1.5s ease forwards; /* Más lento: de 0.8s a 1.5s */
-  }
-  
-  #productos.animate-active .product-card {
-    opacity: 0;
-    animation: fadeInUp 1.5s ease forwards; /* Más lento: de 0.8s a 1.5s */
-  }
-  
-  #productos.animate-active .product-card:nth-child(1) {
-    animation-delay: 0.2s; /* Retraso ligeramente mayor */
-  }
-  
-  #productos.animate-active .product-card:nth-child(2) {
-    animation-delay: 0.4s; /* Retraso ligeramente mayor */
-  }
-  
-  #productos.animate-active .product-card:nth-child(3) {
-    animation-delay: 0.6s; /* Retraso ligeramente mayor */
-  }
-  
-  #productos.animate-active .product-card:nth-child(4) {
-    animation-delay: 0.8s; /* Retraso ligeramente mayor */
-  }
-  
-  #categorias.animate-active .section-title {
-    animation: fadeInDown 1.5s ease forwards; /* Más lento: de 0.8s a 1.5s */
-  }
-  
-  #categorias.animate-active .category-card {
-    opacity: 0;
-    animation: fadeInUp 1.5s ease forwards; /* Más lento: de 0.8s a 1.5s */
-  }
-  
-  #categorias.animate-active .category-card:nth-child(1) {
-    animation-delay: 0.2s; /* Retraso ligeramente mayor */
-  }
-  
-  #categorias.animate-active .category-card:nth-child(2) {
-    animation-delay: 0.4s; /* Retraso ligeramente mayor */
-  }
-  
-  #categorias.animate-active .category-card:nth-child(3) {
-    animation-delay: 0.6s; /* Retraso ligeramente mayor */
-  }
-  
-  #servicios.animate-active .section-title {
-    animation: fadeInDown 1.5s ease forwards; /* Más lento: de 0.8s a 1.5s */
-  }
-  
-  #servicios.animate-active .service-card {
-    opacity: 0;
-    animation: scaleIn 1.5s ease forwards; /* Más lento: de 0.8s a 1.5s */
-  }
-  
-  #servicios.animate-active .service-card:nth-child(1) {
-    animation-delay: 0.2s; /* Retraso ligeramente mayor */
-  }
-  
-  #servicios.animate-active .service-card:nth-child(2) {
-    animation-delay: 0.5s; /* Retraso ligeramente mayor */
-  }
-  
-  #servicios.animate-active .service-card:nth-child(3) {
-    animation-delay: 0.8s; /* Retraso ligeramente mayor */
-  }
-  
-  /* Testimonios */
-  .testimonial-slider .testimonial-card {
-    opacity: 0;
-    animation: fadeInRight 1.5s ease forwards; /* Más lento: de 0.8s a 1.5s */
-  }
-  
-  .testimonial-slider .testimonial-card:nth-child(1) {
-    animation-delay: 0.2s; /* Retraso ligeramente mayor */
-  }
-  
-  .testimonial-slider .testimonial-card:nth-child(2) {
-    animation-delay: 0.5s; /* Retraso ligeramente mayor */
-  }
-  
-  .testimonial-slider .testimonial-card:nth-child(3) {
-    animation-delay: 0.8s; /* Retraso ligeramente mayor */
-  }
-  
-  /* Newsletter */
-  .newsletter .container {
-    opacity: 0;
-    animation: fadeInUp 1.5s ease forwards; /* Más lento: de 0.8s a 1.5s */
-  }
-  
-  /* Footer */
-  #contacto .row > div {
-    opacity: 0;
-    animation: fadeInUp 1.5s ease forwards; /* Más lento: de 0.8s a 1.5s */
-  }
-  
-  #contacto .row > div:nth-child(1) {
-    animation-delay: 0.2s; /* Retraso ligeramente mayor */
-  }
-  
-  #contacto .row > div:nth-child(2) {
-    animation-delay: 0.4s; /* Retraso ligeramente mayor */
-  }
-  
-  #contacto .row > div:nth-child(3) {
-    animation-delay: 0.6s; /* Retraso ligeramente mayor */
-  }
-  
-  #contacto .row > div:nth-child(4) {
-    animation-delay: 0.8s; /* Retraso ligeramente mayor */
-  }
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+}
+
+/* Efecto hover para todos los enlaces */
+.navbar .nav-link:hover {
+    color: #ffffff !important;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+}
+
+/* Estilo específico para el enlace activo */
+.navbar .nav-link.active {
+    color: #ffffff !important;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+    font-weight: 500;
+}
+
+
+/* Estilos para el botón de cambio de tema */
+.theme-switch-wrapper {
+    display: flex;
+    align-items: center;
+}
+
+.theme-switch {
+    display: inline-block;
+    height: 24px;
+    position: relative;
+    width: 50px;
+}
+
+.theme-switch input {
+    display: none;
+}
+
+.slider {
+    background-color: #ccc;
+    bottom: 0;
+    cursor: pointer;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    transition: 0.4s;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 5px;
+}
+
+.slider .fa-sun {
+    color: #f39c12;
+    font-size: 12px;
+}
+
+.slider .fa-moon {
+    color: #f1c40f;
+    font-size: 12px;
+}
+
+.slider:before {
+    background-color: white;
+    bottom: 4px;
+    content: "";
+    height: 16px;
+    left: 4px;
+    position: absolute;
+    transition: 0.4s;
+    width: 16px;
+    z-index: 1;
+}
+
+input:checked + .slider {
+    background-color: #2c3e50;
+}
+
+input:checked + .slider:before {
+    transform: translateX(26px);
+}
+
+.slider.round {
+    border-radius: 34px;
+}
+
+.slider.round:before {
+    border-radius: 50%;
+}
+
+/* Variables para tema claro (por defecto) */
+:root {
+    --primary-color: #007bff;
+    --secondary-color: #6c757d;
+    --background-color: #ffffff;
+    --text-color: #212529;
+    --card-bg: #ffffff;
+    --footer-bg: #343a40;
+    --light-bg: #f8f9fa;
+    --border-color: #dee2e6;
+    --navbar-bg: #343a40;
+    --hero-overlay: rgba(0, 0, 0, 0.5);
+    --shadow-color: rgba(0, 0, 0, 0.15);
+}
+
+/* Variables para tema oscuro */
+[data-theme="dark"] {
+    --primary-color: #0d6efd;
+    --secondary-color: #adb5bd;
+    --background-color: #121212;
+    --text-color: #e0e0e0;
+    --card-bg: #1e1e1e;
+    --footer-bg: #1a1a1a;
+    --light-bg: #2a2a2a;
+    --border-color: #444444;
+    --navbar-bg: #1a1a1a;
+    --hero-overlay: rgba(0, 0, 0, 0.7);
+    --shadow-color: rgba(255, 255, 255, 0.05);
+}
+
+/* Aplicar variables a los elementos */
+body {
+    background-color: var(--background-color);
+    color: var(--text-color);
+    transition: all 0.3s ease;
+}
+
+.navbar {
+    background-color: var(--navbar-bg) !important;
+}
+
+.hero {
+    background-color: var(--hero-overlay);
+}
+
+.card, .product-card, .service-card, .testimonial-card, .category-card {
+    background-color: var(--card-bg);
+    border-color: var(--border-color);
+    box-shadow: 0 0.5rem 1rem var(--shadow-color);
+}
+
+.bg-light {
+    background-color: var(--light-bg) !important;
+}
+
+.footer, .newsletter {
+    background-color: var(--footer-bg);
+}
+
+.modal-content {
+    background-color: var(--background-color);
+    color: var(--text-color);
+    border-color: var(--border-color);
+}
+
+/* Ajuste de colores de texto en modo oscuro */
+[data-theme="dark"] .card-title, 
+[data-theme="dark"] .section-title, 
+[data-theme="dark"] h1, 
+[data-theme="dark"] h2, 
+[data-theme="dark"] h3, 
+[data-theme="dark"] h4, 
+[data-theme="dark"] h5, 
+[data-theme="dark"] h6 {
+    color: var(--text-color);
+}
+
+[data-theme="dark"] .card-text,
+[data-theme="dark"] p {
+    color: var(--secondary-color);
+}
+
+/* Ajuste para contrastes en modo oscuro */
+[data-theme="dark"] .btn-outline-light {
+    color: var(--text-color);
+    border-color: var(--text-color);
+}
+
+[data-theme="dark"] .btn-outline-light:hover {
+    background-color: var(--text-color);
+    color: var(--background-color);
+}
+
+[data-theme="dark"] .table {
+    color: var(--text-color);
+}
+
+[data-theme="dark"] .modal-header {
+    border-bottom-color: var(--border-color);
+}
+
+[data-theme="dark"] .modal-footer {
+    border-top-color: var(--border-color);
+}
+
+[data-theme="dark"] .btn-close {
+    filter: invert(1) grayscale(100%) brightness(200%);
+}
