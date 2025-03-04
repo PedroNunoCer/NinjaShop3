@@ -392,12 +392,7 @@ document.addEventListener('DOMContentLoaded', function() {
             localStorage.setItem('promocionActiva', codigoActual);
             localStorage.setItem('premioDescript', premioActual);
             
-            // Habilitamos el botón nuevamente
-            setTimeout(() => {
-                girarRuletaBtn.disabled = false;
-                isSpinning = false;
-                girarRuletaBtn.textContent = 'Girar otra vez';
-            }, 500);
+            
         }, 4100); // Esperar a que termine la animación (4s + 100ms)
     });
 
